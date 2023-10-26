@@ -49,17 +49,32 @@ typeOfEmail("t.mellink@novi.nl")
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
 
+// kreeg het niet voor elkaar met ternary operators omdat hierbij altijd valid anagepast wordt
+// terwijl je met volledige if-statements valid uitsluitend naar false kan zetten ipv 1 van de 2
+// function checkEmailValidity(email){
+//     let valid = true
+//     !email.includes("@") ? valid = false : valid = true
+//     console.log("contains @ = "+valid)
+//     email.charAt(email.length-1) === "." ? valid = false : valid = true
+//     console.log("last char is . ="+valid)
+//     email.includes(",") ? valid = true : valid = false
+//     console.log("contains , = "+valid)
+//
+//     return valid
+// }
+
 function checkEmailValidity(email){
     let valid = true
-    while(valid){
-        console.log(valid+" 0")
-        email.includes("@") ? valid = true : valid = false
-        console.log(valid+" 1")
-        !(email.includes(",") ? valid = false : valid = true)
-        console.log(valid+" 2")
-        email.lastIndexOf(email) !== "." ? valid = true : valid = false
-        console.log(valid+" 3")
+    if(!email.includes("@")){
+        valid = false
     }
+    if(email.charAt(email.length-1) === "."){
+        valid = false
+    }
+    if(email.includes(",")){
+        valid = false
+    }
+    return valid
 }
 
-checkEmailValidity("n.eeken@novi.nl")
+console.log(checkEmailValidity("n.eeken@novi.nl"))
