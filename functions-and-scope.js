@@ -13,6 +13,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
+function cumLaude(array){
+    const cumLaudeGrades = []
+    for (let i = 0; i < array.length; i++) {
+        if (array[i]>= 8){
+            cumLaudeGrades.push(array[i]);
+        }
+    }
+    return cumLaudeGrades
+}
+
+const amountOfCumLaudeStudents = cumLaude(grades)
+console.log(amountOfCumLaudeStudents.length)
 
 // ---- Verwachte uitkomst: 6
 
@@ -27,6 +39,11 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+const array2 = [6,4,5]
+const array3 = [8, 9, 10, 4, 6]
+//
+const uitkomst = cumLaude(array3)
+console.log(uitkomst.length)
 
 
 
@@ -40,6 +57,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+function average(array){
+    let total = 0
+    for (let i = 0; i < array.length; i++) {
+        total += array[i]
+    }
+   return total/array.length
+}
+
+console.log(average(grades))
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
@@ -48,6 +74,9 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+//zie bovenstaande opdracht
+
+console.log(average(array3))
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
 // averageGrade([6, 4, 5]) geeft xxxx
@@ -58,7 +87,8 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
-
+const untrimmedAverage = average(grades)
+console.log(untrimmedAverage.toFixed(2))
 
 
 /* Bonusopdracht: hoogste cijfer */
